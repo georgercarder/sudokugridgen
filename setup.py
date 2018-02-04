@@ -10,9 +10,10 @@ setup(name="sudokugridgen",
 	scripts=[],	
 	install_requires=[], ## other packages	
 	dependency_links=[], ## links for dep not on pypi	
-	test_suite='pytest',		## nose.collector	
-	tests_require=['pytest'],	## 'nose'
-	setup_requires=['pytest-runner'],
+	test_suite='',		## nose.collector	
+	tests_require=[],	## 'nose'
+	setup_requires=[],
 	packages=['sudokugridgen'],
-	zip_safe=False)
+        zip_safe=False,
+	)
 
