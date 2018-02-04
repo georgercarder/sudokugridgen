@@ -1,5 +1,6 @@
 # Sudoku Grid generator  
 ### 
+Published to pypi.org as sudokugridgen-0.1.tar.gz
 
 From the root directory of the download
 sudo pip3 install .
