@@ -15,6 +15,19 @@ sudo pip3 install .
 ################################################
 # Use and Examples:
 #
+
+ B=buildAndFinalizeAllLimit(d,L) gives a list
+ B where each entry is a d^2xd^2 sudoku grid
+ with entris from a set of symboles {1,2,...,d^2}
+ The limit is on the number of automorphism
+ applied to the base grid. This limit is useful
+ when d is 'big'.. i.e. >2.
+
+ B=buildAndFinalizeAllToFile(d) writes to file
+ a list of d^2xd^2 sudoku grids with entries
+ from the set of symbolds {1,2,...,d^2}
+ Writing to file is useful when d is >2.
+
  B=buildAndFinalizeAll(3) gives a list B where
  each entry is a distinct 9x9 sudoku grid with
  entries from set of symbols {1,2,..,9}
