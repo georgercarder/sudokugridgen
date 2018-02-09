@@ -61,10 +61,6 @@ sudo pip3 install .
  where each row is a distinct permutation
  of d symbols (indoarabic numerals)
 
- factorial.. we all know what that is..
- factorial(d) gives the unary operator
- d!
-
  boardFinalizer(board,d) takes a board
  with rank d and entries the image 
  of addition (Z_nxZ_n)x(Z_nxZ_n)
