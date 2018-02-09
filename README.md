@@ -18,8 +18,8 @@ sudo pip3 install .
 
  B=buildAndFinalizeAllLimit(d,L) gives a list
  B where each entry is a d^2xd^2 sudoku grid
- with entris from a set of symboles {1,2,...,d^2}
- The limit is on the number of automorphism
+ with entris from a set of symbols {1,2,...,d^2}
+ The limit is on the number of automorphisms
  applied to the base grid. This limit is useful
  when d is 'big'.. i.e. >2.
 
