@@ -19,6 +19,12 @@ sudo pip3 install .
  each entry is a distinct 9x9 sudoku grid with
  entries from set of symbols {1,2,..,9}
 
+ CAUTION: buildAndFinalizeAll(d) computes in 
+ under a second for d=2. But the computational
+ complexity of this function is very steep. 
+ As such, for d=3 prepare to wait. But the 
+ quality of the output is worth it.
+
  B=buildAllBoards(3) gives a list B where each
  entry is a distinct 9x9 sudoku grid with
  entries from set of symbols 
