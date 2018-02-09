@@ -27,6 +27,7 @@ sudo pip3 install .
  a list of d^2xd^2 sudoku grids with entries
  from the set of symbolds {1,2,...,d^2}
  Writing to file is useful when d is >2.
+ Careful, this file accumulates to about 23GB.
 
  B=buildAndFinalizeAll(3) gives a list B where
  each entry is a distinct 9x9 sudoku grid with
