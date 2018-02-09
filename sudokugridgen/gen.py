@@ -54,7 +54,17 @@ def buildAndFinalizeAll(d):
     F=[]
     for b in B:
         F.append(boardFinalizer(b,d))
-    return F
+    ### here put Aut(n). revision for v0.2.0
+    P=permutations(d**2)
+    FF=[]
+    for r in range(factorial(d**2)):
+        for f in F:
+            N=[]
+            for i in range(d**2):
+                for j in range(d**2):
+                    N.append(P[(f[j+i*(d**2)]-1)+r*(d**2)]+1)
+            FF.append(N)
+    return FF 
 
 def factorial(n): 
     if n==1:
