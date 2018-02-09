@@ -32,9 +32,6 @@
 # buildGenerators(d) gives a pair of 
 # 'standard' generators for a given
 # rank d
-# permutations(d) gives a list (matrix)
-# where each row is a distinct permutation
-# of d symbols (indoarabic numerals)
 #
 # factorial.. we all know what that is..
 # factorial(d) gives the unary operator
@@ -49,20 +46,22 @@
 ################################################
 ################################################
 
+from itertools import permutations
+
 def buildAndFinalizeAll(d):
     B=buildAllBoards(d)
     F=[]
     for b in B:
         F.append(boardFinalizer(b,d))
     ### here put Aut(n). revision for v0.2.0
-    P=permutations(d**2)
+    P=list(permutations(range(1,d**2+1)))
     FF=[]
     for r in range(factorial(d**2)):
         for f in F:
             N=[]
             for i in range(d**2):
                 for j in range(d**2):
-                    N.append(P[(f[j+i*(d**2)]-1)+r*(d**2)]+1)
+                    N.append(P[r][f[j+i*(d**2)]-1])
             FF.append(N)
     return FF 
 
@@ -71,27 +70,6 @@ def factorial(n):
         return 1
     else:
         return n*factorial(n-1)
-
-def permutations(d): 
-    #called by permutationGenerator
-    S=[0]*(d*(d**d))
-    for j in range(d):
-        I=0
-        t=0
-        for i in range(d**d):
-            S[j+i*d]=I
-            t=t+1
-            if t==(d**(d-1-j)):
-                I=(I+1)%d
-                t=0
-    P=[]
-    for i in range(d**d):
-        row=[]
-        for j in range(d):
-            row.append(S[j+i*d])
-        if len(set(row))==len(row):
-            P=P+row
-    return P
 
 def buildGenerators(d): 
     # called by buildAllBoards and buildStandarBoard
@@ -106,14 +84,14 @@ def buildGenerators(d):
 def permuteGenerator(gen,d):  
     # called by buildAllBoards
     f=factorial(d)
-    P=permutations(d)
+    P=list(permutations(range(1,d+1)))
     ALLGEN=[] # will have d*f rows... (d*d)*d*f length
     for i in range(d):
         for p in range(f):
             toPermute=gen[i*d:(i+1)*d]
             permuted=[]
             for j in range(d):
-                permuted.append(toPermute[P[j+p*d]])
+                permuted.append(toPermute[P[p][j]-1])
             genPermuted=gen[0:(d*d)]
             genPermuted[i*d:(i+1)*d]=permuted
             if (i==0) or (i>0 and p>0):
