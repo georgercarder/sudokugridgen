@@ -48,7 +48,49 @@
 
 from itertools import permutations
 
-def buildAndFinalizeAll(d):
+def buildAndFinalizeAllLimit(d,L): #ideal for d==3
+    B=buildAllBoards(d)
+    F=[]
+    for b in B:
+        F.append(boardFinalizer(b,d))
+    ### here put Aut(n). revision for v0.2.0
+    P=list(permutations(range(1,d**2+1)))
+    FF=[]
+    for r in range(L):
+        for f in F:
+            N=[]
+            for i in range(d**2):
+                for j in range(d**2):
+                    N.append(P[r][f[j+i*(d**2)]-1])
+            FF.append(N)
+    return FF 
+
+
+def buildAndFinalizeAllToFile(d):
+    B=buildAllBoards(d)
+    F=[]
+    for b in B:
+        F.append(boardFinalizer(b,d))
+    ### here put Aut(n). revision for v0.2.0
+    P=list(permutations(range(1,d**2+1)))
+    FF.open('genfile.txt','wt')
+    FF.write('[')
+    for r in range(factorial(d**2)):
+        for f in F:
+            N=[]
+            for i in range(d**2):
+                for j in range(d**2):
+                    N.append(P[r][f[j+i*(d**2)]-1])
+            if r == 0:
+                FF.write(repr(N))
+            else:
+                FF.write(','+repr(N))
+    FF.write(']')
+    FF.close(']')
+    return 0 
+
+
+def buildAndFinalizeAll(d): #ideal for d==2
     B=buildAllBoards(d)
     F=[]
     for b in B:
