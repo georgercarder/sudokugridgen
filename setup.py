@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name="sudokugridgen",
-	version='0.3.0',
+	version='0.3.1',
 	description='a sudoku grid generator',
 	url='http://github.com/georgercarder/sudokugridgen',
 	author='George Carder',

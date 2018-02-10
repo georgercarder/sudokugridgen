@@ -60,6 +60,7 @@
 ################################################
 
 from itertools import permutations
+import random
 
 def buildAndFinalizeAllLimit(d,L): #ideal for d==3
     B=buildAllBoards(d)
@@ -72,9 +73,10 @@ def buildAndFinalizeAllLimit(d,L): #ideal for d==3
     for r in range(L):
         for f in F:
             N=[]
+            ran = random.randint(1, factorial(d**2)-1)
             for i in range(d**2):
                 for j in range(d**2):
-                    N.append(P[r][f[j+i*(d**2)]-1])
+                    N.append(P[ran][f[j+i*(d**2)]-1])
             FF.append(N)
     return FF 
 
@@ -91,9 +93,10 @@ def buildAndFinalizeAllToFile(d):
     for r in range(factorial(d**2)):
         for f in F:
             N=[]
+            ran = random.randint(1, factorial(d**2)-1)
             for i in range(d**2):
                 for j in range(d**2):
-                    N.append(P[r][f[j+i*(d**2)]-1])
+                    N.append(P[ran][f[j+i*(d**2)]-1])
             if r == 0:
                 FF.write(repr(N))
             else:
@@ -114,9 +117,10 @@ def buildAndFinalizeAll(d): #ideal for d==2
     for r in range(factorial(d**2)):
         for f in F:
             N=[]
+            ran = random.randint(1, factorial(d**2)-1)
             for i in range(d**2):
                 for j in range(d**2):
-                    N.append(P[r][f[j+i*(d**2)]-1])
+                    N.append(P[ran][f[j+i*(d**2)]-1])
             FF.append(N)
     return FF 
 
