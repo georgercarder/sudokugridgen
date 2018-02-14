@@ -23,6 +23,16 @@ sudo pip3 install .
  applied to the base grid. This limit is useful
  when d is 'big'.. i.e. >2.
 
+ Suggestion: To get a feel of what the output 
+ looks like and what sort of time it takes
+ run 
+
+ `B=buildAndFinalizeAllLimit(2,200)`
+
+ and
+
+ `B=buildAndFinalizeAllLimit(3,200)`
+
  B=buildAndFinalizeAllToFile(d) writes to file
  a list of d^2xd^2 sudoku grids with entries
  from the set of symbolds {1,2,...,d^2}
